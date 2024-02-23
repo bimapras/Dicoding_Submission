@@ -37,13 +37,13 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
 
 **Informasi Dataset antara lain** :
 - Dataset memiliki format CSV
-- Dataset memiliki 2 dataset yaitu train.csv dan test.csv
+- Terdapat 2 dataset yang digunakan yaitu train.csv dan test.csv
 - Tidak ada missing value, namun terdapat error value pada dataset train
-- Dataset train memiliki 19 fitur tipe int64 dan 2 fitur float64
-- Dataset test memiliki 19 fitur tipe int64 dan 2 fitur float64
+- Dataset train terdiri dari 2000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
+- Dataset test terdiri dari 1000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
 
 **Informasi fitur** :
-- Categorical Feature :
+- Categorical fitur :
   - **blue**: Memiliki bluetooth atau tidak
   - **four_g**: Support 4G atau tidak
   - **three_g**: Support 3G atau tidak
@@ -52,7 +52,7 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
   - **dual_sim**: Support dual SIM card atau tidak.
   - **price_range**:  Target atau label data dengan value 0(low cost), 1(medium cost), 2(high cost) and 3(very high cost)
 
-- Numerical Feature :
+- Numerical fitur :
   - **battery_power**: Total energi yang dapat disimpan baterai dalam satu waktu, diukur dalam mAh.
   - **clock_speed**: Kecepatan prosesor ponsel, diukur dalam GHz (gigahertz).
   - **fc**: Mega pixel untuk kamera depan.
@@ -70,12 +70,41 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
   - **id**: Nomor unique data
 
 ### EDA
-Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan untuk memahami karakteristik, struktur, dan komponen penting dari dataset sebelum melakukan analisis statistik atau pemodelan prediktif lebih lanjut. Tujuan dari EDA sendiri adalah untuk memahami data, mencari anomali seperti error values, mengidentifikasi pola atau tren dalam data, dan melihat hubungan antar fitur. 
+Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan untuk memahami karakteristik, struktur, dan komponen penting dari dataset sebelum melakukan analisis statistik atau pemodelan prediktif lebih lanjut. Tujuan dari **EDA** sendiri adalah untuk memahami data, mencari anomali seperti error values, mengidentifikasi pola atau tren dalam data, dan melihat hubungan antar fitur. 
 
-Berikut tahapan - tahapan EDA yang saya lakukan :
+Berikut tahapan - tahapan **EDA** yang saya lakukan pada train.csv:
 #### Error Value
+Pada tahapan ini untuk dapat mencari error value data harus dibagi terlebih dahulu menjadi categorical dan numerical, kemudian gunakan fungsi *describe()* untuk menganalisis data.
+![describe](../Images/data_describe.png)
+Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi agar fitur tersebut dapat dilakukan penghapusan data atau mengisinnya dengan nilai Min, Max, Mean. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
+
+![error value](../Images/missing_values.png)
+
+Dapat dilihat dengan data train sebanyak 2000 namun jumlah error value 474, maka kita dapat menggunakan pengisian value dengan Min, Max, ataupun Mean dan disini saya mengisikan error value menggunakan nilai Mean.
 #### Removing Outliers
+Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam dataset. Menghilangkan outlier dapat membantu meningkatkan kualitas analisis dan model prediktif. Untuk menghilangkan outlier saya menggunakan library [Seaborn](https://seaborn.pydata.org/generated/seaborn.boxplot.html) untuk visualisasi dan dilanjutkan dengan implementasi teknik **IQR** pada data train.
+
+Jangkauan Interkuartil atau **IQR** adalah ukuran yang digunakan dalam statistik untuk mengukur sebaran data dalam suatu himpunan. **IQR** mengukur jangkauan dari kuartil pertama *(Q1)* hingga kuartil ketiga *(Q3)* dalam data.
+
+Berikut hasil visualisasi menggunakan Seaborn
+![Boxplot](../Images/outliers.png)
+
+Jumlah data setelah melakukan **IQR**
+|  Sebelum  |  Sesudah  |
+|-----------|-----------|
+|(2000, 21) | (1913, 21)|
+
+
 #### Univariate Analysis
+Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
+
+- Distribusi pada categorical fitur
+![Piechart](../Images/univariate_analysis.png)
+
+Dari grafik diatas menunjukkan tiap tiap fitur memiliki dsitribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G
+
+- Distribusi pada numerical fitur
+
 #### Multivariate Analysis
 
 ![correlation image](../Images/correlation_matrix.png)
