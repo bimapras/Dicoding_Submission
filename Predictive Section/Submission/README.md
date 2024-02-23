@@ -43,33 +43,40 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
 - Dataset test memiliki 19 fitur tipe int64 dan 2 fitur float64
 
 **Informasi fitur** :
-1. **battery_power**: Total energi yang dapat disimpan baterai dalam satu waktu, diukur dalam mAh.
-2. **blue**: Memiliki bluetooth atau tidak. (Categorical {0 : No, 1 ; Yes})
-3. **clock_speed**: Kecepatan prosesor ponsel, diukur dalam GHz (gigahertz).
-4. **dual_sim**: Support dual SIM card atau tidak. (Categorical {0 : No, 1 ; Yes})
-5. **fc**: Mega pixel untuk kamera depan.
-6. **four_g**: Support 4G atau tidak. (Categorical {0 : No, 1 ; Yes})
-7. **int_memory**: Kapasotas memori internal, diukur dalam GB (gigabyte).
-8. **m_dep**: Ketebalan handphone.
-9. **mobile_wt**: Berat handphone.
-10. **n_cores**: Jumlah core processor Handphone.
-11. **pcv**: Mega pixel untuk kamera utama.
-12. **px_height**: Tinggi resolusi layar ponsel, diukur dalam pixel.
-13. **px_width**: Lebar resolusi layar ponsel, diukur dalam pixel.
-14. **ram**: kapasitas RAM ponsel, diukur dalam GB (gigabyte).
-15. **sc_h**: Tinggi layar ponsel, diukur dalam cm.
-16. **sc_w**: Lebar layar ponsel, diukur dalam cm.
-17. **talk_time**: lama waktu yang dapat dicapai baterai, dalam waktu 1 kali pengisian daya.
-18. **three_g**: Support 3G atau tidak. (Categorical {0 : No, 1 ; Yes})
-19. **touch_screen**: Memiliki layar sentuh atau tidak. (Categorical {0 : No, 1 ; Yes})
-20. **wifi**: Support menggunakan Wifi atau tidak (Categorical {0 : No, 1 ; Yes})
-21. **price_range**:  Target atau label data yang memiliki nilai 0(low cost), 1(medium cost), 2(high cost) and 3(very high cost)
-22. **id**: Nomor unique data
+- Categorical Feature :
+  - **blue**: Memiliki bluetooth atau tidak
+  - **four_g**: Support 4G atau tidak
+  - **three_g**: Support 3G atau tidak
+  - **touch_screen**: Memiliki layar sentuh atau tidak
+  - **wifi**: Support menggunakan Wifi atau tidak
+  - **dual_sim**: Support dual SIM card atau tidak.
+  - **price_range**:  Target atau label data dengan value 0(low cost), 1(medium cost), 2(high cost) and 3(very high cost)
+
+- Numerical Feature :
+  - **battery_power**: Total energi yang dapat disimpan baterai dalam satu waktu, diukur dalam mAh.
+  - **clock_speed**: Kecepatan prosesor ponsel, diukur dalam GHz (gigahertz).
+  - **fc**: Mega pixel untuk kamera depan.
+  - **int_memory**: Kapasotas memori internal, diukur dalam GB (gigabyte).
+  - **m_dep**: Ketebalan handphone.
+  - **mobile_wt**: Berat handphone.
+  - **n_cores**: Jumlah core processor handphone.
+  - **pcv**: Mega pixel untuk kamera utama.
+  - **px_height**: Tinggi resolusi layar ponsel, diukur dalam pixel.
+  - **px_width**: Lebar resolusi layar ponsel, diukur dalam pixel.
+  - **ram**: kapasitas RAM ponsel, diukur dalam GB (gigabyte).
+  - **sc_h**: Tinggi layar ponsel, diukur dalam cm.
+  - **sc_w**: Lebar layar ponsel, diukur dalam cm.
+  - **talk_time**: lama waktu yang dapat dicapai baterai, dalam waktu 1 kali pengisian daya.
+  - **id**: Nomor unique data
 
 ### EDA
-### Removing Outliers
-### Univariate Analysis
-### Multivariate Analysis
+Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan untuk memahami karakteristik, struktur, dan komponen penting dari dataset sebelum melakukan analisis statistik atau pemodelan prediktif lebih lanjut. Tujuan dari EDA sendiri adalah untuk memahami data, mencari anomali seperti error values, mengidentifikasi pola atau tren dalam data, dan melihat hubungan antar fitur. 
+
+Berikut tahapan - tahapan EDA yang saya lakukan :
+#### Error Value
+#### Removing Outliers
+#### Univariate Analysis
+#### Multivariate Analysis
 
 ![correlation image](../Images/correlation_matrix.png)
 ## Data Preparation
