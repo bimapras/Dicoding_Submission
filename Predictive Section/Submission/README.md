@@ -18,13 +18,13 @@ Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 
 ## Business Understanding
 ### Problem Statements
-- fitur apa saja yang mempengaruhi kategori handphone
+- Fitur apa saja yang mempengaruhi kategori handphone
 - Bagaimana cara memproses data agar hasil prediksinya baik
 - Apakah ada perbedaan signifikan pada spesifikasi antar handphone dengan kategori handphone
 
 ### Goals
 - Mengetahui fitur yang paling berpengaruh terhadap kategori handphone
-- Melakukan pembersihan data agar dapt dilatih oleh model
+- Melakukan pembersihan data agar dapat dilatih oleh model
 - Membuat model machine learning yang dapat mengklasifikasikan kategori handphone berdasarkan spesifikasi tertentu
 
 ### Solution Statement
@@ -38,7 +38,7 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
 **Informasi Dataset antara lain** :
 - Dataset memiliki format CSV
 - Terdapat 2 dataset yang digunakan yaitu train.csv dan test.csv
-- Tidak ada missing value, namun terdapat error value pada dataset train
+- Tidak ada missing value
 - Dataset train terdiri dari 2000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
 - Dataset test terdiri dari 1000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
 
@@ -56,7 +56,7 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
   - **battery_power**: Total energi yang dapat disimpan baterai dalam satu waktu, diukur dalam mAh.
   - **clock_speed**: Kecepatan prosesor ponsel, diukur dalam GHz (gigahertz).
   - **fc**: Mega pixel untuk kamera depan.
-  - **int_memory**: Kapasotas memori internal, diukur dalam GB (gigabyte).
+  - **int_memory**: Kapasitas memori internal, diukur dalam GB (gigabyte).
   - **m_dep**: Ketebalan handphone.
   - **mobile_wt**: Berat handphone.
   - **n_cores**: Jumlah core processor handphone.
@@ -89,7 +89,7 @@ Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu mel
 #### Removing Outliers
 Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam dataset. Menghilangkan outlier dapat membantu meningkatkan kualitas analisis dan model prediktif. Untuk menghilangkan outlier saya menggunakan library [Seaborn](https://seaborn.pydata.org/generated/seaborn.boxplot.html) untuk visualisasi dan dilanjutkan dengan implementasi teknik **IQR** pada data train.
 
-Jangkauan Interkuartil atau **IQR** adalah ukuran yang digunakan dalam statistik untuk mengukur sebaran data dalam suatu himpunan. **IQR** mengukur jangkauan dari kuartil pertama *(Q1)* hingga kuartil ketiga *(Q3)* dalam data.
+**IQR** atau Jangkauan Interkuartil adalah ukuran yang digunakan dalam statistik untuk mengukur sebaran data dalam suatu himpunan. **IQR** mengukur jangkauan dari kuartil pertama *(Q1)* hingga kuartil ketiga *(Q3)* dalam data.
 
 Berikut hasil visualisasi menggunakan Seaborn
 ![Boxplot](../Images/outliers.png)
@@ -106,7 +106,7 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 - Distribusi pada categorical fitur
 ![Piechart](../Images/univariate_analysis.png)
 
-Dari grafik diatas menunjukkan tiap tiap fitur memiliki dsitribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
+Dari grafik diatas menunjukkan tiap-tiap fitur memiliki distribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
 
 - Distribusi pada numerical fitur
 ![Histogram](../Images/histogram.png)
@@ -126,11 +126,11 @@ Berikut analisis dari histogram diatas :
 Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada data, disini saya menggunakan correlation matrix untuk melihat hubungan antara fitur categorical dan numerical pada fitur target yaitu 'price_range'.
 
 ![correlation image](../Images/correlation_matrix.png)
-Dari matrix diatas terdapat hubungan yang kuat pada fitur ram dengan price_range dengan nilai korelasi sebesar 0.92
+Dari matrix diatas terdapat hubungan yang kuat pada fitur ram dengan price_range dengan nilai korelasi sebesar 0.92.
 
 ![correlation](../Images/visual_correlation.png)
 
-Visualisai diatas menunjukkan grafik keatas yang berarti semakin tinggi kategori price_range maka hp tersebut meiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
+Visualisai diatas menunjukkan grafik keatas yang berarti semakin tinggi kategori price_range maka hp tersebut memiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
 
 ## Data Preparation
 ## Modelling
