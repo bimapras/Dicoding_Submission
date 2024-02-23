@@ -115,6 +115,7 @@ Berikut analisis dari histogram diatas :
 - Sebagian besar handphone memilki daya baterai sekitar 1500 mAh.
 - Kebanyakan handphone memiliki clock speed yang rendah.
 - Banyak handphone memiliki kamera depan dengan megapiksel rendah.
+- Distribusi kapasitas memori internal cukup merata.
 - Distribusi kamera utama cukup merata, tetapi ada puncak pada beberapa megapiksel tertentu.
 - Resolusi layar handphone bervariasi, mulai dari tinggi dan lebarnya.
 - Distribusi ram cukup merata, walaupun terdapat lonjakan pada beberapa kapasitas ram.
