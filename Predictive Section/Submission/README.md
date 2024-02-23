@@ -31,3 +31,5 @@ Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 - Menganalisis data dengan melakukan univariate analysis, multivariate analysis, visualisasi data. Dengan melakukan analisis kita dapat memahami data lebih dalam seperti mengetahui korelasi antar fitur dan mendeteksi outlier
 - Melakukan normalisasi data menggunakan MinMaxScaler
 - Menggunakan grid search untuk menentukan parameter model dan membuat model klasifikasi dengan algoritma K-Nearest Neighbour, Random Forest, dan AdaBoost
+
+![coorrelation image](Predictive Section/Images/correlation_matrix.png)
