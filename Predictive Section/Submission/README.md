@@ -32,4 +32,4 @@ Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 - Melakukan normalisasi data menggunakan MinMaxScaler
 - Menggunakan grid search untuk menentukan parameter model dan membuat model klasifikasi dengan algoritma K-Nearest Neighbour, Random Forest, dan AdaBoost
 
-![correlation image](Images/correlation_matrix.png)
+![correlation image](Predictive%20Section/Images/correlation_matrix.png)
