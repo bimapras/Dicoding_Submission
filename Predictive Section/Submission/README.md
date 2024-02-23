@@ -12,12 +12,11 @@ ini adalah proyek pertama predictive analytics submission dicoding. Proyek ini m
 Pada saat ini, pasar handphone sudah sangat berkembang.
 Banyak produsen ponsel atau handphone yang menawarkan berbagai fitur dan spesifikasi yang beragam dengan harga yang berbeda. Dalam menentukan harga suatu handphone pastinya terdapat suatu faktor yang mempengaruhi harga jual handphone.
 
-Oleh Karena itu, untuk mempermudah dalam menentukan harga handphone maka kita dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam nentukan harga jual handphone pada suatu perusahaan.
+Oleh Karena itu, untuk mempermudah dalam menentukan harga suatu handphone maka dibuatlah penelitian menggunakan model machine learning yang dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam menentukan harga jual handphone pada suatu perusahaan.
 
 Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 
 ## Business Understanding
-
 ### Problem Statements
 - fitur apa saja yang mempengaruhi kategori handphone
 - Bagaimana cara memproses data agar hasil prediksinya baik
