@@ -81,6 +81,11 @@ Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minim
 ![error value](../Images/missing_values.png)
 
 Dapat dilihat dengan data train sebanyak 2000 namun jumlah error value 474, maka kita dapat menggunakan pengisian value dengan Min, Max, ataupun Mean dan disini saya mengisikan error value menggunakan nilai Mean.
+
+![Target]()
+
+Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling
+
 #### Removing Outliers
 Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam dataset. Menghilangkan outlier dapat membantu meningkatkan kualitas analisis dan model prediktif. Untuk menghilangkan outlier saya menggunakan library [Seaborn](https://seaborn.pydata.org/generated/seaborn.boxplot.html) untuk visualisasi dan dilanjutkan dengan implementasi teknik **IQR** pada data train.
 
@@ -104,6 +109,7 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 Dari grafik diatas menunjukkan tiap tiap fitur memiliki dsitribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G
 
 - Distribusi pada numerical fitur
+![Histogram](../Images/histogram.png)
 
 #### Multivariate Analysis
 
