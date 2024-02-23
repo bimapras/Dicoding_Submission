@@ -14,7 +14,7 @@ Banyak produsen ponsel atau handphone yang menawarkan berbagai fitur dan spesifi
 
 Oleh Karena itu, untuk mempermudah dalam menentukan harga handphone maka kita dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam nentukan harga jual handphone pada suatu perusahaan.
 
-Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
+Referensi : [Prediction of Mobile Phone Price Class using Supervised Machine Learning Techniques](https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf)
 
 ## Business Understanding
 
