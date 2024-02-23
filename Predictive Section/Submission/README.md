@@ -55,7 +55,7 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
 - Numerical fitur :
   - **battery_power**: Total energi yang dapat disimpan baterai dalam satu waktu, diukur dalam mAh.
   - **clock_speed**: Kecepatan prosesor ponsel, diukur dalam GHz (gigahertz).
-  - **fc**: Mega pixel untuk kamera depan.
+  - **fc**: Megapixel untuk kamera depan.
   - **int_memory**: Kapasitas memori internal, diukur dalam GB (gigabyte).
   - **m_dep**: Ketebalan handphone.
   - **mobile_wt**: Berat handphone.
