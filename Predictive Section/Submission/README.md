@@ -60,13 +60,13 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
   - **m_dep**: Ketebalan handphone.
   - **mobile_wt**: Berat handphone.
   - **n_cores**: Jumlah core processor handphone.
-  - **pcv**: Mega pixel untuk kamera utama.
+  - **pc**: Megapixel untuk kamera utama.
   - **px_height**: Tinggi resolusi layar ponsel, diukur dalam pixel.
   - **px_width**: Lebar resolusi layar ponsel, diukur dalam pixel.
   - **ram**: kapasitas RAM ponsel, diukur dalam GB (gigabyte).
   - **sc_h**: Tinggi layar ponsel, diukur dalam cm.
   - **sc_w**: Lebar layar ponsel, diukur dalam cm.
-  - **talk_time**: lama waktu yang dapat dicapai baterai, dalam waktu 1 kali pengisian daya.
+  - **talk_time**: lama waktu baterai ketika digunakan, dalam waktu 1 kali pengisian daya.
   - **id**: Nomor unique data
 
 ### EDA
@@ -80,11 +80,11 @@ Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minim
 
 ![error value](../Images/missing_values.png)
 
-Dapat dilihat dengan data train sebanyak 2000 namun jumlah error value 474, maka kita dapat menggunakan pengisian value dengan Min, Max, ataupun Mean dan disini saya mengisikan error value menggunakan nilai Mean.
+Dapat dilihat dengan data train sebanyak 2000 namun jumlah error value 474, maka kita dapat mengisikan value dengan Min, Max, ataupun Mean, dan disini saya mengisikan error value menggunakan nilai Mean.
 
-![Target]()
+![Target](../Images/distribusi_target.png)
 
-Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling
+Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling.
 
 #### Removing Outliers
 Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam dataset. Menghilangkan outlier dapat membantu meningkatkan kualitas analisis dan model prediktif. Untuk menghilangkan outlier saya menggunakan library [Seaborn](https://seaborn.pydata.org/generated/seaborn.boxplot.html) untuk visualisasi dan dilanjutkan dengan implementasi teknik **IQR** pada data train.
@@ -106,14 +106,30 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 - Distribusi pada categorical fitur
 ![Piechart](../Images/univariate_analysis.png)
 
-Dari grafik diatas menunjukkan tiap tiap fitur memiliki dsitribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G
+Dari grafik diatas menunjukkan tiap tiap fitur memiliki dsitribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
 
 - Distribusi pada numerical fitur
 ![Histogram](../Images/histogram.png)
 
+Berikut analisis dari histogram diatas :
+- Sebagian besar handphone memilki daya baterai sekitar 1500 mAh.
+- Kebanyakan handphone memiliki clock speed yang rendah.
+- Banyak handphone memiliki kamera depan dengan megapiksel rendah.
+- Distribusi kamera utama cukup merata, tetapi ada puncak pada beberapa megapiksel tertentu.
+- Resolusi layar handphone bervariasi, mulai dari tinggi dan lebarnya.
+- Distribusi ram cukup merata, walaupun terdapat lonjakan pada beberapa kapasitas ram.
+- Lama waktu baterai ketika digunakan cukup bervariasi.
+- Tinggi dan lebar handphone cukup beragam.
+
 #### Multivariate Analysis
+Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada data, disini saya menggunakan correlation matrix untuk melihat hubungan antara fitur categorical dan numerical pada fitur target yaitu 'price_range'.
 
 ![correlation image](../Images/correlation_matrix.png)
+Dari matrix diatas terdapat hubungan yang kuat pada fitur ram dengan price_range dengan nilai korelasi sebesar 0.92
+
+![correlation](../Images/visual_correlation.png)
+Visualisai diatas menunjukkan semakin tinggi kategori price_range maka hp tersebut meiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
+
 ## Data Preparation
 ## Modelling
 ## Evaluation
