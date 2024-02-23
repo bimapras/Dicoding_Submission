@@ -128,7 +128,8 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada d
 Dari matrix diatas terdapat hubungan yang kuat pada fitur ram dengan price_range dengan nilai korelasi sebesar 0.92
 
 ![correlation](../Images/visual_correlation.png)
-Visualisai diatas menunjukkan semakin tinggi kategori price_range maka hp tersebut meiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
+
+Visualisai diatas menunjukkan grafik keatas yang berarti semakin tinggi kategori price_range maka hp tersebut meiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
 
 ## Data Preparation
 ## Modelling
