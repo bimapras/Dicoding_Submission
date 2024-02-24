@@ -14,8 +14,6 @@ Pada saat ini, pasar handphone sudah sangat berkembang. Banyak produsen ponsel a
 
 Oleh Karena itu, untuk mempermudah dalam menentukan harga suatu handphone maka dibuatlah penelitian menggunakan model machine learning yang dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam menentukan harga jual handphone pada suatu perusahaan.
 
-Referensi Jurnal : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
-
 ## Business Understanding
 ### Problem Statements
 - Fitur apa saja yang mempengaruhi kategori handphone
