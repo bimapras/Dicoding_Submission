@@ -2,8 +2,7 @@
 
 Disusun Oleh : Bima Prastyaji
 
-ini adalah proyek pertama predictive analytics submission dicoding. Proyek ini membangun model machine learning yang dapat memprediksi kategori harga jual suatu handphone.
-
+ini adalah proyek pertama predictive analytics submission dicoding. Proyek ini membangun model **multiclass classification** yang dapat memprediksi kategori harga jual suatu handphone.
 
 ## Domain Proyek
 
@@ -15,7 +14,7 @@ Pada saat ini, pasar handphone sudah sangat berkembang. Banyak produsen ponsel a
 
 Oleh Karena itu, untuk mempermudah dalam menentukan harga suatu handphone maka dibuatlah penelitian menggunakan model machine learning yang dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam menentukan harga jual handphone pada suatu perusahaan.
 
-Referensi Penelitian : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
+Referensi Jurnal : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 
 ## Business Understanding
 ### Problem Statements
@@ -137,7 +136,7 @@ Visualisasi diatas menunjukkan grafik mengarah keatas yang berarti semakin tingg
 Teknik yang digunakan antara lain Split data dan Normalization.
 - Split data
   
-  Dalam melakukan split data fitur harus dipisahkan menjadi x dan y, dimana y merupakan target atau label data. Untuk split data saya menggunakan TrainTestSplit dari library [Sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) dengan pembagian data train 90% dan data test 10%.
+  Dalam melakukan split data fitur harus dipisahkan menjadi x dan y, dimana y merupakan target atau label data. Untuk split data saya menggunakan [TrainTestSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) dari library [Sklearn](https://scikit-learn.org/stable/) dengan pembagian data train 90% dan data test 10%.
 
   Hasil TrainTestSplit
   | Fitur |   Train    |   Test    |
@@ -147,9 +146,7 @@ Teknik yang digunakan antara lain Split data dan Normalization.
   
 - Normalization
   
-  Tujuan normalisasi adalah memastikan bahwa data memiliki distribusi yang baik, sehingga dapat meningkatkan kinerja model dan hasil prediksi. Salah satu teknik yang digunakan pada proyek ini adalah MinMaxScaler dari library [Sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html).
-
-  **MinMaxScaler** 
+  Tujuan normalisasi adalah memastikan bahwa data memiliki distribusi yang baik, sehingga dapat meningkatkan kinerja model dan hasil prediksi. Salah satu teknik yang digunakan pada proyek ini adalah [MinMaxScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) dari library [Sklearn](https://scikit-learn.org/stable/). **MinMaxScaler** mengubah semua nilai fitur pada dataset dengan nilai minimum 0 dan nilai maksimum 1 pada tiap fitur.
 
   *notes : lakukan normalisasi hanya pada data numerical*
 ## Modelling
