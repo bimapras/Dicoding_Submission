@@ -230,7 +230,8 @@ Hasil Akurasi
 |-----|---|------------|--------|
 |Accuracy|0.411458|0.890625|0.75|
 
-![MSE_metric](https://d17ivq9b7rppb3.cloudfront.net/original/academy/2021071619431112f1106e20559e77c855cea11d1b1479.jpeg)
+![MSE_metric](../Images/mse_rumus.jpeg)
+
 Keterangan :
 - N = jumlah dataset
 - yi = nilai sebenarnya
@@ -239,3 +240,9 @@ Keterangan :
 Hasil MSE
 
 ![MSE](../Images/mse_algoritma.png)
+
+## Kesimpulan
+Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Dapat dilihat hasil evaluasi diatas menunjukkan Algoritma RandomForest (RF) memiliki kinerja yang sangat bagus daripada algoritma KNN atau AdaBoost dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
+
+## Prediksi Dataset Test 
+Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](prediction.csv)
