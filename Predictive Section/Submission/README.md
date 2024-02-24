@@ -133,8 +133,9 @@ Dari matrix diatas terdapat hubungan yang kuat pada fitur 'ram' dan 'price_range
 Visualisasi diatas menunjukkan grafik mengarah keatas yang berarti semakin tinggi kategori price_range maka hp tersebut memiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah.
 
 ## Data Preparation
-Teknik yang digunakan antara lain Split data dan Normalization.
-- Split data
+Pada tahapan ini kita melakukan proses transformasi pada data sehingga menjadi bentuk yang cocok untuk proses pemodelan. Terdapat 2 tahapan yang saya lakukan pada proyek ini yaitu *Split Data* dan *Normalization*.
+
+- Split Data
   
   Dalam melakukan split data fitur harus dipisahkan menjadi x dan y, dimana y merupakan target atau label data. Untuk split data saya menggunakan [TrainTestSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) dari library [Sklearn](https://scikit-learn.org/stable/) dengan pembagian data train 90% dan data test 10%.
 
@@ -150,14 +151,91 @@ Teknik yang digunakan antara lain Split data dan Normalization.
 
   *notes : lakukan normalisasi hanya pada data numerical*
 ## Modelling
+Tahapan ini merupakan proses pembuatan model machine learning dengan menerapkan algoritma tertentu pada data yang telah dipersiapkan sebelumnya. Model akan dilatih menggunakan data train untuk mempelajari pola dan hubungan antara fitur dengan target (label) yang akan diprediksi.
+### Algoritma
 Algoritma yang digunakan untuk membangun model machine learning pada proyek ini yaitu K-Nearest Neighbour, Random Forest, dan AdaBoost.
 
-### Algoritma
 #### K-Nearest Neighbour
+K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) dengan inputan x_train dan y_train untuk melatih model. 
 
+  - Kelebihan:
+    - Sederhana dan mudah diimplementasikan.
+    - Tidak memerlukan asumsi tentang distribusi data.
+    - Cocok untuk masalah klasifikasi dengan data berdimensi tinggi.
+  - Kekurangan:
+    - Sensitif terhadap skala data dan jumlah tetangga (nilai k).
+    - Memerlukan perhitungan jarak untuk setiap prediksi.
+
+Parameter yang digunakan yaitu :
+- `n_neighbors`   = Jumlah k tetangga tedekat.
+  
 #### Random Forest
+Random forest merupakan salah satu model machine learning yang termasuk ke dalam kategori ensemble (group) learning. Pada model ensemble, setiap model harus membuat prediksi secara independen. Kemudian, prediksi dari setiap model ensemble ini digabungkan untuk membuat prediksi akhir. Proyek ini menggunakan [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) dengan inputan x_train dan y_train untuk melatih model.
 
+  - Kelebihan :
+    - Mengurangi overfitting dengan menggabungkan banyak pohon keputusan.
+    - Stabil dan konsisten dalam performa.
+    - Cocok untuk data berdimensi tinggi dan kategori yang tidak seimbang.
+  - Kekurangan :
+    - Sulit untuk diinterpretasi karena kompleksitas model.
+    - Memerlukan lebih banyak sumber daya komputasi.
+
+Parameter yang digunakan yaitu :
+- `n_estimators`  = Jumlah pohon keputusan (estimator) yang akan digunakan dalam Random Forest.
+- `max_depth`     = Kedalaman maksimum dari setiap pohon keputusan dalam Random Forest.
+- `random_state`  = Menentukan seed untuk generator angka acak yang digunakan dalam algoritma.
+  
 #### AdaBoost
-### GridSearch
-## Evaluation
+Adaboost bekerja dengan cara membangun banyak model klasifikasi lemah dan menggabungkan hasil prediksi dari setiap model untuk memprediksi label kelas. Proyek ini menggunakan [AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) dengan inputan x_train dan y_train untuk melatih model.
 
+  - Kelebihan:
+    - Meningkatkan performa model dengan menggabungkan beberapa weak learner.
+    - Tidak memerlukan tuning parameter yang rumit.
+    - Cocok untuk masalah klasifikasi dan regresi.
+  - Kekurangan:
+    - Rentan terhadap noise dan outlier.
+    - Memerlukan lebih banyak iterasi untuk konvergensi.
+
+Parameter yang digunakan yaitu :
+- `learning_rate` = Menentukan seberapa besar bobot yang diberikan pada setiap model klasifikasi lemah.
+- `n_estimators`  = Menentukan jumlah model klasifikasi lemah (estimator) yang akan dibangun
+- `algorithm`     = Menentukan algoritma yang digunakan untuk membangun model klasifikasi lemah (SAMME atau SAMME.R)
+- `random_state`  = Menentukan seed untuk generator angka acak yang digunakan dalam algoritma.
+  
+### GridSearch
+Pada pembuatan model tentunya kita perlu mencoba beberapa parameter agar hasil dari prediksi maksimal, untuk mempermudah dalam menentukan parameter saya menggunakan teknik [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) dengan nilai cv = 10.
+
+Hasil **GridSearch**
+  | model         | best_score |best_params                                                                           |
+  |---------------|------------|--------------------------------------------------------------------------------------|
+  | KNN           |  0.934642  |{'n_neighbors': 11}                                                                   |
+  | AdaBoost      |  0.741260  |{'algorithm': 'SAMME', 'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 11} |
+  | Random Forest |  0.881329  |{'max_depth': None, 'n_estimators': 75, 'random_state': 55}                           |
+
+Dari hasil GridSearch algoritma yang memiliki score tertinggi yaitu KNN, mungkin kita dapat asumsikan algoritma KNN dengan parameter tersebut sangat baik untuk sebuah model. Namun apakah hasil akurasinya bagus dengan nilai error yang kecil?.
+
+## Evaluation
+Pada tahapan ini saya menggunakan metric **Score** dan [MSE](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) (Mean Squared Error) untuk mengevaluasi model.
+
+|Perhitungan Score|
+|------------------|
+|(TP + TN) / (TP + TN + FP + FN)|
+- TP (True Positive) adalah jumlah data yang diprediksi benar sebagai kelas positif.
+- TN (True Negative) adalah jumlah data yang diprediksi benar sebagai kelas negatif.
+- FP (False Positive) adalah jumlah data yang diprediksi salah sebagai kelas positif.
+- FN (False Negative) adalah jumlah data yang diprediksi salah sebagai kelas negatif.
+
+Hasil Akurasi
+|Kolom|KNN|RandomForest|Boosting|
+|-----|---|------------|--------|
+|Accuracy|0.411458|0.890625|0.75|
+
+![MSE_metric](https://d17ivq9b7rppb3.cloudfront.net/original/academy/2021071619431112f1106e20559e77c855cea11d1b1479.jpeg)
+Keterangan :
+- N = jumlah dataset
+- yi = nilai sebenarnya
+- y_pred = nilai prediksi
+
+Hasil MSE
+
+![MSE](../Images/mse_algoritma.png)
