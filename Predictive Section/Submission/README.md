@@ -150,7 +150,14 @@ Teknik yang digunakan antara lain Split data dan Normalization.
 
   *notes : lakukan normalisasi hanya pada data numerical*
 ## Modelling
+Algoritma yang digunakan untuk membangun model machine learning pada proyek ini yaitu K-Nearest Neighbour, Random Forest, dan AdaBoost.
+
 ### Algoritma
+#### K-Nearest Neighbour
+
+#### Random Forest
+
+#### AdaBoost
 ### GridSearch
 ## Evaluation
 
