@@ -9,12 +9,13 @@ ini adalah proyek pertama predictive analytics submission dicoding. Proyek ini m
 
 ### Latar Belakang
 
-Pada saat ini, pasar handphone sudah sangat berkembang.
-Banyak produsen ponsel atau handphone yang menawarkan berbagai fitur dan spesifikasi yang beragam dengan harga yang berbeda. Dalam menentukan harga suatu handphone pastinya terdapat suatu faktor yang mempengaruhi harga jual handphone.
+![cover](https://s.kaskus.id/images/2022/01/12/10351509_20220112023258.jpg)
+
+Pada saat ini, pasar handphone sudah sangat berkembang. Banyak produsen ponsel atau handphone yang menawarkan berbagai fitur dan spesifikasi yang beragam dengan harga yang berbeda. Dalam menentukan harga suatu handphone pastinya terdapat suatu faktor yang mempengaruhi harga jual handphone.
 
 Oleh Karena itu, untuk mempermudah dalam menentukan harga suatu handphone maka dibuatlah penelitian menggunakan model machine learning yang dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam menentukan harga jual handphone pada suatu perusahaan.
 
-Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
+Referensi Penelitian : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 
 ## Business Understanding
 ### Problem Statements
@@ -30,7 +31,7 @@ Referensi : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
 ### Solution Statement
 - Menganalisis data dengan melakukan EDA, univariate analysis, multivariate analysis, dan visualisasi data. Dengan melakukan analisis kita dapat memahami data lebih dalam seperti mengetahui korelasi antar fitur dan mendeteksi outlier
 - Melakukan normalisasi data menggunakan MinMaxScaler
-- Menggunakan grid search untuk menentukan parameter model dan membuat model klasifikasi dengan algoritma K-Nearest Neighbour, Random Forest, dan AdaBoost.
+- Menerapkan grid search untuk menentukan parameter model dan membuat model klasifikasi dengan algoritma K-Nearest Neighbour, Random Forest, dan AdaBoost.
 
 ## Data Understanding
 Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari **Kaggle**. Dataset dapat di download pada tautan berikut [Resource Dataset](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification/data)
@@ -38,7 +39,7 @@ Dataset yang digunakan pada proyek ini merupakan data spesifikasi handphone dari
 **Informasi Dataset antara lain** :
 - Dataset memiliki format CSV
 - Terdapat 2 dataset yang digunakan yaitu train.csv dan test.csv
-- Tidak ada missing value
+- Tidak ada missing value (Nan)
 - Dataset train terdiri dari 2000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
 - Dataset test terdiri dari 1000 sample dengan 19 fitur tipe int64 dan 2 fitur float64
 
@@ -74,13 +75,13 @@ Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan 
 
 Berikut tahapan - tahapan **EDA** yang saya lakukan pada train.csv:
 #### Error Value
-Pada tahapan ini untuk dapat mencari error value data harus dibagi terlebih dahulu menjadi categorical dan numerical, kemudian gunakan fungsi *describe()* untuk menganalisis data.
+Pada tahapan ini untuk mencari error value, fitur dibagi terlebih dahulu menjadi categorical dan numerical, kemudian gunakan fungsi *describe()* untuk menganalisis data pada fitur numerical.
 ![describe](../Images/data_describe.png)
-Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi agar fitur tersebut dapat dilakukan penghapusan data atau mengisinnya dengan nilai Min, Max, Mean. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
+Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
 
 ![error value](../Images/missing_values.png)
 
-Dapat dilihat dengan data train sebanyak 2000 namun jumlah error value 474, maka kita dapat mengisikan value dengan Min, Max, ataupun Mean, dan disini saya mengisikan error value menggunakan nilai Mean.
+Dapat disimpulkan bahwa dengan data train yang terdiri dari 2000 sample dan value error pada fitur 'pc' sebanyak 474 bisa dibilang besar, maka untuk menanganinya kita dapat mengganti value error tersebut dengan nilai rata-rata (Mean).
 
 ![Target](../Images/distribusi_target.png)
 
@@ -116,7 +117,7 @@ Berikut analisis dari histogram diatas :
 - Kebanyakan handphone memiliki clock speed yang rendah.
 - Banyak handphone memiliki kamera depan dengan megapiksel rendah.
 - Distribusi kapasitas memori internal cukup merata.
-- Distribusi kamera utama cukup merata, tetapi ada puncak pada beberapa megapiksel tertentu.
+- Distribusi kamera utama cukup merata, tetapi ada lonjakan pada beberapa megapiksel tertentu.
 - Resolusi layar handphone bervariasi, mulai dari tinggi dan lebarnya.
 - Distribusi ram cukup merata, walaupun terdapat lonjakan pada beberapa kapasitas ram.
 - Lama waktu baterai ketika digunakan cukup bervariasi.
@@ -126,13 +127,33 @@ Berikut analisis dari histogram diatas :
 Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada data, disini saya menggunakan correlation matrix untuk melihat hubungan antara fitur categorical dan numerical pada fitur target yaitu 'price_range'.
 
 ![correlation image](../Images/correlation_matrix.png)
-Dari matrix diatas terdapat hubungan yang kuat pada fitur ram dengan price_range dengan nilai korelasi sebesar 0.92.
+Dari matrix diatas terdapat hubungan yang kuat pada fitur 'ram' dan 'price_range' dengan nilai korelasi sebesar 0,92.
 
 ![correlation](../Images/visual_correlation.png)
 
-Visualisai diatas menunjukkan grafik keatas yang berarti semakin tinggi kategori price_range maka hp tersebut memiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah
+Visualisasi diatas menunjukkan grafik mengarah keatas yang berarti semakin tinggi kategori price_range maka hp tersebut memiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah.
 
 ## Data Preparation
+Teknik yang digunakan antara lain Split data dan Normalization.
+- Split data
+  
+  Dalam melakukan split data fitur harus dipisahkan menjadi x dan y, dimana y merupakan target atau label data. Untuk split data saya menggunakan TrainTestSplit dari library [Sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) dengan pembagian data train 90% dan data test 10%.
+
+  Hasil TrainTestSplit
+  | Fitur |   Train    |   Test    |
+  |-------|------------|-----------|
+  |   x   | (1721, 20) | (192, 20) |
+  |   y   | (1721) | (192) |
+  
+- Normalization
+  
+  Tujuan normalisasi adalah memastikan bahwa data memiliki distribusi yang baik, sehingga dapat meningkatkan kinerja model dan hasil prediksi. Salah satu teknik yang digunakan pada proyek ini adalah MinMaxScaler dari library [Sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html).
+
+  **MinMaxScaler** 
+
+  *notes : lakukan normalisasi hanya pada data numerical*
 ## Modelling
+### Algoritma
+### GridSearch
 ## Evaluation
 
