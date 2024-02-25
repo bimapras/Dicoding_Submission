@@ -240,7 +240,7 @@ Pada pembuatan model tentunya perlu mencoba beberapa parameter agar hasil dari p
 
 Tabel 4. best_param algoritma
 
-Dari hasil GridSearch algoritma yang memiliki score tertinggi yaitu *KNN*, mungkin dapat diasumsikan algoritma *KNN* dengan parameter tersebut sangat baik untuk sebuah model. Namun apakah hasil akurasinya bagus dengan nilai error yang kecil?.
+Dari hasil *GridSearch* algoritma yang memiliki score tertinggi yaitu *KNN*, mungkin dapat diasumsikan algoritma *KNN* dengan parameter tersebut sangat baik untuk sebuah model. Namun apakah hasil akurasinya bagus dengan nilai error yang kecil?.
 
 ## Evaluation
 Metric yang digunakan pada proyek ini antara lain **Score** dan [MSE](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) (Mean Squared Error) untuk mengevaluasi model.
@@ -260,9 +260,9 @@ Tabel 5. rumus score
 |-----|---|------------|--------|
 |Accuracy|0.411458|0.890625|0.75|
 
-Tabel 6. akurasi algoritma
+Tabel 6. akurasi model
 
-Tabel 6 menunjukkan bahwa pada algoritma KNN yang sebelumnya mempunyai skor tinggi namun nilai akurasi yang dihasilkan sangat rendah, sedangkan pada algoritma RandomForest dan Bossting menghasilkan nilai akurasi yang sangat baik dan tidak berbeda jauh dengan nilai skor GridSearch.
+Tabel 6 menunjukkan bahwa pada model *KNN* yang sebelumnya mempunyai skor tinggi namun nilai akurasi yang dihasilkan sangat rendah, sedangkan pada model *RandomForest* dan *Bossting* menghasilkan nilai akurasi yang sangat baik dan tidak berbeda jauh dengan nilai skor *GridSearch*.
 
 ![mse_rumus](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58e91608-f270-48fc-95dd-c0e70825a1ce)
 
@@ -275,14 +275,24 @@ Keterangan :
 
 Hasil MSE
 
+| |train|test|
+|-|-|-|
+|KNN|0.000667|0.000917|
+|RF|0.0|0.000109|
+|AdaBoost|0.000256|0.00025|
+
+Tabel 7. nilai *MSE*
+
+Pada tabel 7 menampilkan hasil perhitungan nilai *MSE* pada data train dan data test dari ketiga model, untuk mempermudah dalam menganalisis dapat dilihat pada gambar 10.
+
 ![mse_algoritma](https://github.com/bimapras/Dicoding_Submission/assets/91962289/db8edbae-73a6-4384-bc4d-35be4fb63724)
 
-Gambar 10. perbandingan nilai mse tiap algoritma
+Gambar 10. perbandingan nilai mse tiap model
 
-Pada gambar 10 terlihat model RandomForest memiliki nilai error yang sangat rendah baik pada data train ataupun data test, kemudian pada model AdaBoost nilai error yang dihasilkan juga cukup baik karena perbedaan nilai error pada data train dan test tidak jauh berbeda, sedangkan model KNN memiliki nilai error yang paling besar dibandingkan dengan algoritma AdaBoost atau RandomForest. Dari 3 model tersebut akan dipilih 1 model yang memiliki nilai error kecil dan nilai akurasi yang tinggi. Maka dari itu model yang akan dipilih pada proyek ini adalah RandomForest.
+Pada gambar 10 terlihat model *RandomForest* memiliki nilai error yang sangat rendah baik pada data train ataupun data test, kemudian pada model *AdaBoost* nilai error yang dihasilkan juga cukup baik karena perbedaan nilai error pada data train dan test tidak jauh berbeda, sedangkan model *KNN* memiliki nilai error yang paling besar dibandingkan dengan model *AdaBoost* atau *RandomForest*. Dari ketiga model tersebut akan dipilih 1 model yang memiliki nilai error kecil dan nilai akurasi yang tinggi. Maka dari itu model yang akan dipilih pada proyek ini adalah *RandomForest*.
 
 ## Kesimpulan
-Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Dapat dilihat hasil evaluasi menunjukkan model *RandomForest* (RF) memiliki kinerja yang sangat bagus daripada algoritma *KNN* atau *AdaBoost* dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
+Dapat disimpulkan bahwa algoritma dengan nilai score *GridSearch* besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Hasil evaluasi menunjukkan model *RandomForest* (RF) memiliki kinerja yang sangat bagus daripada model *KNN* atau *AdaBoost* dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
 
 ## Prediksi Dataset Test 
 Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Submission/prediction.csv)
