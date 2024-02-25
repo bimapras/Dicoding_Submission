@@ -108,7 +108,7 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 Dari grafik diatas menunjukkan tiap-tiap fitur memiliki distribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
 
 - Distribusi pada numerical fitur
-![Histogram](../Images/histogram.png)
+![histogram](https://github.com/bimapras/Dicoding_Submission/assets/91962289/926eaf54-b57a-4b24-ae30-936236c65510)
 
 Berikut analisis dari histogram diatas :
 - Sebagian besar handphone memilki daya baterai sekitar 1500 mAh.
@@ -124,10 +124,10 @@ Berikut analisis dari histogram diatas :
 #### Multivariate Analysis
 Multivariate Analysis menunjukkan hubungan antara dua atau lebih variabel pada data, disini saya menggunakan correlation matrix untuk melihat hubungan antara fitur categorical dan numerical pada fitur target yaitu 'price_range'.
 
-![correlation image](../Images/correlation_matrix.png)
+![correlation_matrix](https://github.com/bimapras/Dicoding_Submission/assets/91962289/3b796d55-b7dc-4316-a362-5bb5c89a848e)
 Dari matrix diatas terdapat hubungan yang kuat pada fitur 'ram' dan 'price_range' dengan nilai korelasi sebesar 0,92.
 
-![correlation](../Images/visual_correlation.png)
+![visual_correlation](https://github.com/bimapras/Dicoding_Submission/assets/91962289/7f0ba317-d1da-4a24-84ca-3885f9cd9289)
 
 Visualisasi diatas menunjukkan grafik mengarah keatas yang berarti semakin tinggi kategori price_range maka hp tersebut memiliki kapasitas ram yang besar, dan juga sebaliknya. Hp yang memiliki kapasitas ram kecil maka akan masuk ke kategori price_range yang rendah.
 
@@ -146,9 +146,9 @@ Pada tahapan ini kita melakukan proses transformasi pada data sehingga menjadi b
   
 - Normalization
   
-  Tujuan normalisasi adalah memastikan bahwa data memiliki distribusi yang baik, sehingga dapat meningkatkan kinerja model dan hasil prediksi. Salah satu teknik yang digunakan pada proyek ini adalah [MinMaxScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) dari library [Sklearn](https://scikit-learn.org/stable/). **MinMaxScaler** mengubah semua nilai fitur pada dataset dengan nilai minimum 0 dan nilai maksimum 1 pada tiap fitur.
+  Tujuan normalisasi adalah memastikan bahwa data memiliki distribusi yang baik, sehingga dapat meningkatkan kinerja model dan hasil prediksi. Salah satu teknik yang digunakan pada proyek ini adalah [MinMaxScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) dari library [Sklearn](https://scikit-learn.org/stable/). *MinMaxScaler* mengubah semua nilai fitur pada dataset dengan nilai minimum 0 dan nilai maksimum 1 pada tiap fitur.
 
-  *notes : lakukan normalisasi hanya pada data numerical*
+  notes : lakukan normalisasi hanya pada data numerical
 ## Modelling
 Tahapan ini merupakan proses pembuatan model machine learning dengan menerapkan algoritma tertentu pada data yang telah dipersiapkan sebelumnya. Model akan dilatih menggunakan data train untuk mempelajari pola dan hubungan antara fitur dengan target (label) yang akan diprediksi.
 ### Algoritma
@@ -229,7 +229,7 @@ Hasil Akurasi
 |-----|---|------------|--------|
 |Accuracy|0.411458|0.890625|0.75|
 
-![MSE_metric](../Images/mse_rumus.jpeg)
+![mse_rumus](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58e91608-f270-48fc-95dd-c0e70825a1ce)
 
 Keterangan :
 - N = jumlah dataset
@@ -238,10 +238,10 @@ Keterangan :
 
 Hasil MSE
 
-![MSE](../Images/mse_algoritma.png)
+![mse_algoritma](https://github.com/bimapras/Dicoding_Submission/assets/91962289/db8edbae-73a6-4384-bc4d-35be4fb63724)
 
 ## Kesimpulan
 Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Dapat dilihat hasil evaluasi diatas menunjukkan Algoritma RandomForest (RF) memiliki kinerja yang sangat bagus daripada algoritma KNN atau AdaBoost dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
 
 ## Prediksi Dataset Test 
-Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](prediction.csv)
+Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Submission/prediction.csv)
