@@ -95,13 +95,13 @@ Dari tabel 1 terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dim
 
 Gambar 2. jumlah error value
 
-Berdasarkan data train yang terdiri dari 2000 sampel dan jumlah error value pada fitur ‘pc’ sebanyak 474, dapat disimpulkan bahwa ini merupakan jumlah yang signifikan. Oleh karena itu, untuk mengatasinya, akan dilakukan penggantian dengan nilai rata-rata (mean).
+Berdasarkan gambar 2 dengan data train yang terdiri dari 2000 sampel dan jumlah error value pada fitur ‘pc’ sebanyak 474, dapat disimpulkan bahwa ini merupakan jumlah yang signifikan. Oleh karena itu, untuk mengatasinya, akan dilakukan penggantian dengan nilai rata-rata (mean).
 
 ![distribusi_target](https://github.com/bimapras/Dicoding_Submission/assets/91962289/cb1a1a16-e689-429f-a6fd-952e9f882b3f)
 
 Gambar 3. distribusi target
 
-Pada gambar 3 distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling.
+Pada gambar 3 distribusi target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling.
 
 #### Removing Outliers
 Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam dataset. Menghilangkan outlier dapat membantu meningkatkan kualitas analisis dan model prediktif, untuk menghilangkan outlier teknik yang digunakan adalah visualisasi library [Seaborn](https://seaborn.pydata.org/generated/seaborn.boxplot.html) dan dilanjutkan dengan implementasi teknik *IQR* pada data train. Hasil dari implementasi teknik *IQR* dapat dilihat pada tabel 2.
@@ -262,6 +262,8 @@ Tabel 5. rumus score
 
 Tabel 6. akurasi algoritma
 
+Tabel 6 menunjukkan bahwa pada algoritma KNN yang sebelumnya mempunyai skor tinggi namun nilai akurasi yang dihasilkan sangat rendah, sedangkan pada algoritma RandomForest dan Bossting menghasilkan nilai akurasi yang sangat baik dan tidak berbeda jauh dengan nilai skor GridSearch.
+
 ![mse_rumus](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58e91608-f270-48fc-95dd-c0e70825a1ce)
 
 Gambar 9. rumus mean squared error
@@ -277,8 +279,10 @@ Hasil MSE
 
 Gambar 10. perbandingan nilai mse tiap algoritma
 
+Pada gambar 10 terlihat model RandomForest memiliki nilai error yang sangat rendah baik pada data train ataupun data test, kemudian pada model AdaBoost nilai error yang dihasilkan juga cukup baik karena perbedaan nilai error pada data train dan test tidak jauh berbeda, sedangkan model KNN memiliki nilai error yang paling besar dibandingkan dengan algoritma AdaBoost atau RandomForest. Dari 3 model tersebut akan dipilih 1 model yang memiliki nilai error kecil dan nilai akurasi yang tinggi. Maka dari itu model yang akan dipilih pada proyek ini adalah RandomForest.
+
 ## Kesimpulan
-Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Dapat dilihat hasil evaluasi diatas menunjukkan Algoritma *RandomForest* (RF) memiliki kinerja yang sangat bagus daripada algoritma *KNN* atau *AdaBoost* dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
+Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tentu memiliki nilai akurasi dan nilai error yang optimal. Dapat dilihat hasil evaluasi menunjukkan model *RandomForest* (RF) memiliki kinerja yang sangat bagus daripada algoritma *KNN* atau *AdaBoost* dengan nilai akurasi sebesar 89% dan nilai error pada test sebesar 0.000109.
 
 ## Prediksi Dataset Test 
 Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Submission/prediction.csv)
