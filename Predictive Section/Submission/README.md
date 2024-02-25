@@ -282,3 +282,6 @@ Dapat disimpulkan bahwa algoritma dengan nilai score GridSearch besar belum tent
 
 ## Prediksi Dataset Test 
 Memprediksi kategori harga jual pada dataset test.csv, berikut hasil prediksinya dalam bentuk csv [Hasil Prediksi](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Submission/prediction.csv)
+
+## Referensi
+[1] Varun Kiran A and Dr. Jebakumar R. (2022). "Prediction of Mobile Phone Price Class using Supervised Machine Learning Techniques",[International Journal of Innovative Science Research and Technology, Volume 7, Issue 1, pp. 248–251](https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf)
