@@ -77,11 +77,11 @@ Pada tahapan ini untuk mencari error value, fitur dibagi terlebih dahulu menjadi
 
 Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
 
-![error value](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/missing_values.png)
+![missing_values](https://github.com/bimapras/Dicoding_Submission/assets/91962289/3c91e3e8-74ad-438c-b5c7-f15d4a45dd5f)
 
 Dapat disimpulkan bahwa dengan data train yang terdiri dari 2000 sample dan value error pada fitur 'pc' sebanyak 474 bisa dibilang besar, maka untuk menanganinya kita dapat mengganti value error tersebut dengan nilai rata-rata (Mean).
 
-![Target](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/distribusi_target.png)
+![distribusi_target](https://github.com/bimapras/Dicoding_Submission/assets/91962289/cb1a1a16-e689-429f-a6fd-952e9f882b3f)
 
 Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling.
 
@@ -91,7 +91,7 @@ Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam 
 **IQR** atau Jangkauan Interkuartil adalah ukuran yang digunakan dalam statistik untuk mengukur sebaran data dalam suatu himpunan. **IQR** mengukur jangkauan dari kuartil pertama *(Q1)* hingga kuartil ketiga *(Q3)* dalam data.
 
 Berikut hasil visualisasi menggunakan Seaborn
-![Boxplot](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/outliers.png)
+![outliers](https://github.com/bimapras/Dicoding_Submission/assets/91962289/06ac3404-53e0-42b0-a734-cd0fa0b38887)
 
 Jumlah data setelah melakukan **IQR**
 |  Sebelum  |  Sesudah  |
@@ -103,7 +103,7 @@ Jumlah data setelah melakukan **IQR**
 Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 
 - Distribusi pada categorical fitur
-![Piechart](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/univariate_analysis.png)
+![univariate_analysis](https://github.com/bimapras/Dicoding_Submission/assets/91962289/7f2d6cb3-d14e-421a-bf2d-ef664594320b)
 
 Dari grafik diatas menunjukkan tiap-tiap fitur memiliki distribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
 
