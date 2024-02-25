@@ -14,8 +14,6 @@ Pada saat ini, pasar handphone sudah sangat berkembang. Banyak produsen ponsel a
 
 Oleh Karena itu, untuk mempermudah dalam menentukan harga suatu handphone maka dibuatlah penelitian menggunakan model machine learning yang dapat mengklasifikasikan handphone ke dalam beberapa kategori seperti 0(Low cost), 1(medium cost), 2(high cost) and 3(very high cost). Hasil prediksi ini nantinya dapat dijadikan standart dalam menentukan harga jual handphone pada suatu perusahaan.
 
-Referensi Jurnal : https://ijisrt.com/assets/upload/files/IJISRT22JAN380.pdf
-
 ## Business Understanding
 ### Problem Statements
 - Fitur apa saja yang mempengaruhi kategori handphone
@@ -75,14 +73,14 @@ Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan 
 Berikut tahapan - tahapan **EDA** yang saya lakukan pada train.csv:
 #### Error Value
 Pada tahapan ini untuk mencari error value, fitur dibagi terlebih dahulu menjadi categorical dan numerical, kemudian gunakan fungsi *describe()* untuk menganalisis data pada fitur numerical.
-![describe](../Images/data_describe.png)
+![describe](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/data_describe.png)
 Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
 
-![error value](../Images/missing_values.png)
+![error value](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/missing_values.png)
 
 Dapat disimpulkan bahwa dengan data train yang terdiri dari 2000 sample dan value error pada fitur 'pc' sebanyak 474 bisa dibilang besar, maka untuk menanganinya kita dapat mengganti value error tersebut dengan nilai rata-rata (Mean).
 
-![Target](../Images/distribusi_target.png)
+![Target](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/distribusi_target.png)
 
 Distribusi pada fitur target menampilkan data sudah balance maka tidak perlu melakukan oversampling ataupun undersampling.
 
@@ -92,7 +90,7 @@ Outlier adalah nilai yang berbeda secara signifikan dari nilai-nilai lain dalam 
 **IQR** atau Jangkauan Interkuartil adalah ukuran yang digunakan dalam statistik untuk mengukur sebaran data dalam suatu himpunan. **IQR** mengukur jangkauan dari kuartil pertama *(Q1)* hingga kuartil ketiga *(Q3)* dalam data.
 
 Berikut hasil visualisasi menggunakan Seaborn
-![Boxplot](../Images/outliers.png)
+![Boxplot](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/outliers.png)
 
 Jumlah data setelah melakukan **IQR**
 |  Sebelum  |  Sesudah  |
@@ -104,7 +102,7 @@ Jumlah data setelah melakukan **IQR**
 Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 
 - Distribusi pada categorical fitur
-![Piechart](../Images/univariate_analysis.png)
+![Piechart](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/univariate_analysis.png)
 
 Dari grafik diatas menunjukkan tiap-tiap fitur memiliki distribusi data yang seimbang atau hampir seimbang kecuali pada 'three_g', sehingga dapat disimpulkan bahwa hanya sebagian kecil handphone yang     tidak support 3G.
 
