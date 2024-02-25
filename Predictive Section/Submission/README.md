@@ -73,7 +73,8 @@ Exploratory Data Analysis (EDA) adalah proses analisis awal data yang bertujuan 
 Berikut tahapan - tahapan **EDA** yang saya lakukan pada train.csv:
 #### Error Value
 Pada tahapan ini untuk mencari error value, fitur dibagi terlebih dahulu menjadi categorical dan numerical, kemudian gunakan fungsi *describe()* untuk menganalisis data pada fitur numerical.
-![describe](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/data_describe.png)
+![data_describe](https://github.com/bimapras/Dicoding_Submission/assets/91962289/375febba-4f0c-4367-9c79-7cc34faee573)
+
 Dari hasil *describe* terlihat terdapat beberapa fitur yang memiliki nilai minimum 0. Dimana nilai tersebut tidak wajar, sehingga dibutuhkan analisis yang lebih dalam lagi. Fitur yang memiliki nilai error antara lain fc, pc, px_height, sc_w. 
 
 ![error value](https://github.com/bimapras/Dicoding_Submission/blob/master/Predictive%20Section/Images/missing_values.png)
