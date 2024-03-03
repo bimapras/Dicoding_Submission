@@ -79,17 +79,61 @@ Table 2. Informasi Rating
 
 Dapat dilihat pada table 2 pada fitur rating memiliki nilai minimum 0.5 dan nilai maksimum 5, berarti setiap artikel blog memiliki skala rating antara 0.5 hingga 5.
 
+![unik_rating](https://github.com/bimapras/Dicoding_Submission/assets/91962289/c3e90e50-e903-43b1-a3df-01eb5967469c)
 
 Gambar 2. Data unik pada rating
+
+Pada gambar 2 menunjukkan bahwa jumlah blog yang ada hanya 9706 dari 200140 data, dan banyaknya pengguna yang memberikan rating adalah 5001 dari 200140 data. Dapat dikatakan sebagian besar pengguna setidaknya telah membaca dan memberikan rating lebih dari 3 artikel blog.
 
 ![top10_user](https://github.com/bimapras/Dicoding_Submission/assets/91962289/15069829-ed7b-4abe-b58a-5c98168da1ab)
 
 Gambar 3. Top 10 pengguna
 
-Dari gambar 2 menunjukkan pengguna yang sering membaca dan memberikan rating adalah pengguna dengan user 3619, 3882, 4453, 4012, 4131, 1418, 622, 3742, 1855, dan 455.  
+Dari gambar 3 menunjukkan pengguna yang sering membaca dan memberikan rating adalah pengguna dengan *user* 3619, 3882, 4453, 4012, 4131, 1418, 622, 3742, 1855, dan 455.  
+
 #### Blog
-Melihat informasi fitur dataset blog
+Melihat 5 data teratas pada blog menggunakan fungsi *head*
+
+|blog_id|	author_id|	blog_title|	topic|
+|-|-|-|-|
+|1|	4|	Let’s Dominate The Launchpad Space Again|	ai|
+|3|	4|	Let’s Dominate The Launchpad Space Again|	ai|
+|4|	7|	Using ChatGPT for User Research|	ai|
+|5|	8|	The Automated Stable-Diffusion Checkpoint Merger, autoMBW.|	ai|
+|6|	9|	The Art of Lazy Creativity: My Experience Co-Writing a Monty Python Style Sketch with AI|	ai|
+
+Table 3. 5 data teratas pada blog
+
+![uniq_blog](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58da5cc4-75ef-4a9d-ba75-f3819c9d8453)
+
+Gambar 4. Data unik pada blog
+
+Pada gambar 4 menunjukkan terdapat 10467 jumlah blog, 6824 author, 23 jenis konten, dan 10466 title. Perhatikan pada jumlah blog dan jumlah title, terdapat perbedaan yang kecil pada jumlahnya, namun hal tersebut tidak wajar, karena tiap blog pastinya memiliki judulnya masing masing sehingga perlu dicari mengapa hal tersebut dapat terjadi.
+
+![distribusi_topic](https://github.com/bimapras/Dicoding_Submission/assets/91962289/57a95c4d-c716-4b4a-98f5-3072e9e7c564)
+
+Gambar 5. Distribusi Topic
+
+Dari gambar 5 terlihat bahwa grafik distribusi menunjukkan mayoritas blog yang ada merupakan artikel blog dengan topik ai, blockchain, cybersecurity, web-development, data-analysis, dan cloud-computing.
 #### Author
+![unik_author](https://github.com/bimapras/Dicoding_Submission/assets/91962289/1050a0aa-e1ee-48cc-b0d7-003a9360d28a)
+
+Gambar 6. Data unik pada author
+
+Pada gambar 6 terlihat jumlah author_id tidak seimbang dengan jumlah nama author, kemungkinan hal ini terjadi karena terdapat author yang memiliki lebih dari 1 author id.
+
+![dup_name](https://github.com/bimapras/Dicoding_Submission/assets/91962289/97961f48-5fa5-4529-b205-97ec4b872341)
+
+Gambar 7. Author dengan 2 id
+
+Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, maka dari itu perlu dilihat author tersebut memiliki author_id apa saja. Author_id Kompetify.ai dapat dlihat pada tabel 4.
+
+|author_id|author_name|
+|-|-|
+|84|Kompetify.ai|
+|95|Kompetify.ai|
+
+Table 4. author_id Kompetify.ai
 ### Preprocessing
 ## Data Preparation
 
