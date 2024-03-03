@@ -161,10 +161,38 @@ Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat di
   
 - **Merge author dan blog**
 
-  Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari missing value pada fitur tertentu.
+  Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari missing value pada fitur tertentu dan melihat jumlah data.
 
+  |Shape|
+  |-|
+  |(10511, 5)|
+
+  Table 5. Dimensi data setelah digabungkan
+
+  Dapat dilihat pada table 5 setelah digabungkan jumlah data yang dimiliki adalah 10511.
+  
+  ![missing_value](https://github.com/bimapras/Dicoding_Submission/assets/91962289/79aa7c7f-376c-49ac-b0c5-0ff0c83f8e1e)
+
+  Gambar 8. Missing value
+  
+  Dapat dilihat pada gambar 8 terdapat 44 missing value pada fitur blog_id, blog_title, topic setelah digabungkan. Sehingga dapat dilakukan penghapusan pada data yang memiliki missing value.
 - **Remove missing value**
+
+  Menghapus data yang memiliki missing value menggunakan *dropna()*, proses ini dilakukan agar tidak terjadi bias pada data nantinya. Kemudian setelah missing value dihapus jumlah datanya dapat dilihat pada table 6.
+
+  |Shape|
+  |-|
+  |(10467, 5)|
+
+  Table 6. Dimensi data bersih
 - **Membuat Dataframe blog_rate**
+
+  Membuat Dataframe baru dengan menggabungkan data bersih dan rating. Penggabungan ini dilakukan untuk mendapatkan informasi tentang preferensi pengguna, dengan mendapatkan informasi ini model machine learning akan jauh lebih mudah merekomendasikan artikel blog yang relevan dengan minat pengguna.
+  
+![like_topic](https://github.com/bimapras/Dicoding_Submission/assets/91962289/f1be7415-8585-4774-a035-e2f4dada0559)
+  Gambar 8. Distribusi Top Topic
+
+  Dari hasil grafik pada gambar 8 dapat disimpulkan bahwa artikel blog dengan topic flutter, android, app-development, SoftwareDevelopment, dan web-development lebih banyak diminati oleh sebagian besar pengguna.
 ## Data Preparation
 
 ## Modelling
