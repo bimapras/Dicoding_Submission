@@ -79,10 +79,18 @@ Table 2. Informasi Rating
 
 Dapat dilihat pada table 2 pada fitur rating memiliki nilai minimum 0.5 dan nilai maksimum 5, berarti setiap artikel blog memiliki skala rating antara 0.5 hingga 5.
 
+
+Gambar 2. Data unik pada rating
+
+![top10_user](https://github.com/bimapras/Dicoding_Submission/assets/91962289/15069829-ed7b-4abe-b58a-5c98168da1ab)
+
+Gambar 3. Top 10 pengguna
+
+Dari gambar 2 menunjukkan pengguna yang sering membaca dan memberikan rating adalah pengguna dengan user 3619, 3882, 4453, 4012, 4131, 1418, 622, 3742, 1855, dan 455.  
 #### Blog
 Melihat informasi fitur dataset blog
 #### Author
-
+### Preprocessing
 ## Data Preparation
 
 ## Modelling
