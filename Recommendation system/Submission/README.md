@@ -42,27 +42,34 @@ Dataset yang digunakan pada proyek ini merupakan data artikel blog dari medium y
 Table 1. Informasi Dataset
   
 - Dataset Blog_Rating.csv
-  Terdapat 200140 data dengan 3 fitur :
-  - `blog_id` : Id blog (9706 data unik)
-  - `userId` : Id pengguna (5001 data unik)
-  - `ratings` : rating yang diberikan oleh pembaca (nilai rating memiliki skala antra 0.5 hingga 5)
+
+  Terdapat 200140 data dengan 2 fitur tipe ineteger dan 1 fitur tipe float :
+  - `blog_id` : Id dari blog
+  - `userId` : Id pengguna 
+  - `ratings` : Rating yang diberikan oleh pengguna 
 
 - Dataset Medium_Blog_Data.csv
-  Terdapat 10467 data dan hanya 4 fitur yang digunakan pada dataset ini, antara lain :
-  - `blog_id` : Id blog (10467 data unik)
-  - `author_id` : Id penulis/pengarang (6824 data unik)
-  - `blog_title` : Judul blog (10466 data unik)
-  - `topic` : Jenis konten pada suatu blog (23 data unik)
+  
+  Terdapat 10467 data dengan 2 fitur tipe integer dan 5 fitur tipe object :
+  - `blog_id` : Id dari blog
+  - `author_id` : Id penulis/pengarang
+  - `blog_title` : Judul blog
+  - `blog_content` : deskripsi singkat pada blog
+  - `blog_link` : link atau url blog
+  - `blog_img` : link cover gambar blog
+  - `topic` : jenis konten pada suatu blog
+  - `scrape_time` : waktu pengambilan data  
 
 - Dataset Author_Data.csv
-  Terdapat 6868 dengan 2 fitur :
-  - `author_id` : Id penulis/pengarang (6868 data unik)
-  - `author_name` : nama sang penulis/pengarang (6867 data unik)
+
+  Terdapat 6868 data dengan 1 fitur tipe integer dan 1 fitur tipe object :
+  - `author_id` : Id penulis/pengarang 
+  - `author_name` : nama sang penulis/pengarang 
   
 ### EDA
 *Exploratory Data Analysis* pada proyek dilakukan pada 3 dataset berikut *EDA* pada tiap dataset :
 #### Rating
-Analisis setiap fitur numerik dataset rating menggunakan fungsi *describe*
+Analisis setiap fitur numerik dataset Blog_Rating.csv menggunakan fungsi *describe*
 
 ||	blog_id|	userId|	ratings|
 |-|-|-|-|
@@ -92,7 +99,7 @@ Gambar 3. Top 10 pengguna
 Dari gambar 3 menunjukkan pengguna yang sering membaca dan memberikan rating adalah pengguna dengan *user* 3619, 3882, 4453, 4012, 4131, 1418, 622, 3742, 1855, dan 455.  
 
 #### Blog
-Melihat 5 data teratas pada blog menggunakan fungsi *head*
+Pada dataset Medium_Blog_Data.csv fitur yang dibutuhkan hanya blog_id, author_id, blog_title, dan topic.
 
 |blog_id|	author_id|	blog_title|	topic|
 |-|-|-|-|
@@ -102,13 +109,15 @@ Melihat 5 data teratas pada blog menggunakan fungsi *head*
 |5|	8|	The Automated Stable-Diffusion Checkpoint Merger, autoMBW.|	ai|
 |6|	9|	The Art of Lazy Creativity: My Experience Co-Writing a Monty Python Style Sketch with AI|	ai|
 
-Table 3. 5 data teratas pada blog
+Table 3. Tampilan 5 data teratas pada blog
+
+Terlihat pada table 3 ternyata author dengan author_id 4 memiliki 2 artikel blog dengan judul yang sama namun berbeda blog_id.
 
 ![uniq_blog](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58da5cc4-75ef-4a9d-ba75-f3819c9d8453)
 
 Gambar 4. Data unik pada blog
 
-Pada gambar 4 menunjukkan terdapat 10467 jumlah blog, 6824 author, 23 jenis konten, dan 10466 title. Perhatikan pada jumlah blog dan jumlah title, terdapat perbedaan yang kecil pada jumlahnya, namun hal tersebut tidak wajar, karena tiap blog pastinya memiliki judulnya masing masing sehingga perlu dicari mengapa hal tersebut dapat terjadi.
+Pada gambar 4 menunjukkan terdapat 10467 jumlah blog, 6824 author, 23 jenis konten, dan 10466 title. Perhatikan pada jumlah blog dan jumlah title, terdapat perbedaan yang kecil pada jumlahnya, namun hal tersebut tidak wajar, karena tiap blog pastinya memiliki judulnya masing-masing.
 
 ![distribusi_topic](https://github.com/bimapras/Dicoding_Submission/assets/91962289/57a95c4d-c716-4b4a-98f5-3072e9e7c564)
 
@@ -120,11 +129,11 @@ Dari gambar 5 terlihat bahwa grafik distribusi menunjukkan mayoritas blog yang a
 
 Gambar 6. Data unik pada author
 
-Pada gambar 6 terlihat jumlah author_id tidak seimbang dengan jumlah nama author, kemungkinan hal ini terjadi karena terdapat author yang memiliki lebih dari 1 author id.
+Pada gambar 6 terlihat jumlah author_id tidak seimbang dengan jumlah author_name, kemungkinan hal ini terjadi karena terdapat author yang memiliki lebih dari 1 author id.
 
 ![dup_name](https://github.com/bimapras/Dicoding_Submission/assets/91962289/97961f48-5fa5-4529-b205-97ec4b872341)
 
-Gambar 7. Author dengan 2 id
+Gambar 7. Double blog_id
 
 Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, maka dari itu perlu dilihat author tersebut memiliki author_id apa saja. Author_id Kompetify.ai dapat dlihat pada tabel 4.
 
@@ -135,6 +144,27 @@ Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, m
 
 Table 4. author_id Kompetify.ai
 ### Preprocessing
+Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat digunakan oleh model, antara lain :
+- **Helper Function**
+  
+  Membuat fungsi untuk menghapus tanda baca, emoji dan simbol menggunakan library [Regular Expression](https://docs.python.org/3/library/re.html)
+  ```
+  def remove_emoji_and_symbols(text):
+    text_no_emoji = re.sub(r'[^\w\s\d]+', '', text)
+    return text_no_emoji
+  ```
+  Fungsi ini dibuat untuk memudahkan dalam proses penghapusan tanda baca, emoji, dan simbol pada data.
+  
+- **Remove punctuation, emoji, dan symbol**
+  
+  Menghapus tanda baca, emoji, dan symbol pada data blog dan author. Proses ini dilakukan untuk mengurangi kompleksitas dan mempercepat proses pada saat data dimasukkan ke dalam model.
+  
+- **Merge author dan blog**
+
+  Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari missing value pada fitur tertentu.
+
+- **Remove missing value**
+- **Membuat Dataframe blog_rate**
 ## Data Preparation
 
 ## Modelling
