@@ -144,8 +144,8 @@ Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, m
 
 Table 4. author_id Kompetify.ai
 ### Preprocessing
-Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat digunakan oleh model, antara lain :
-- **Helper Function**
+Pada proyek ini terdapat beberapa teknik yang digunakan pada preprocessing, antara lain :
+- **Create Helper Function**
   
   Membuat fungsi untuk menghapus tanda baca, emoji dan simbol menggunakan library [Regular Expression](https://docs.python.org/3/library/re.html)
   ```
@@ -159,7 +159,7 @@ Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat di
   
   Menghapus tanda baca, emoji, dan symbol pada data blog dan author. Proses ini dilakukan untuk mengurangi kompleksitas dan mempercepat proses pada saat data dimasukkan ke dalam model.
   
-- **Merge author dan blog**
+- **Merge author and blog**
 
   Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari missing value pada fitur tertentu dan melihat jumlah data.
 
@@ -176,7 +176,7 @@ Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat di
   Gambar 8. Missing value
   
   Dapat dilihat pada gambar 8 terdapat 44 missing value pada fitur blog_id, blog_title, topic setelah digabungkan. Sehingga dapat dilakukan penghapusan pada data yang memiliki missing value.
-- **Remove missing value**
+- **Remove Missing Value**
 
   Menghapus data yang memiliki missing value menggunakan *dropna()*, proses ini dilakukan agar tidak terjadi bias pada data nantinya. Kemudian setelah missing value dihapus jumlah datanya dapat dilihat pada table 6.
 
@@ -185,16 +185,48 @@ Pada proyek ini untuk terdapat beberapa teknik yang digunakan agar data dapat di
   |(10467, 5)|
 
   Table 6. Dimensi data bersih
-- **Membuat Dataframe blog_rate**
+- **Create Dataframe blog_rate**
 
   Membuat Dataframe baru dengan menggabungkan data bersih dan rating. Penggabungan ini dilakukan untuk mendapatkan informasi tentang preferensi pengguna, dengan mendapatkan informasi ini model machine learning akan jauh lebih mudah merekomendasikan artikel blog yang relevan dengan minat pengguna.
   
 ![like_topic](https://github.com/bimapras/Dicoding_Submission/assets/91962289/f1be7415-8585-4774-a035-e2f4dada0559)
-  Gambar 8. Distribusi Top Topic
+  Gambar 9. Distribusi Top Topic
 
-  Dari hasil grafik pada gambar 8 dapat disimpulkan bahwa artikel blog dengan topic flutter, android, app-development, SoftwareDevelopment, dan web-development lebih banyak diminati oleh sebagian besar pengguna.
+  Dari hasil grafik pada gambar 9 dapat disimpulkan bahwa artikel blog dengan topic flutter, android, app-development, SoftwareDevelopment, dan web-development lebih banyak diminati oleh sebagian besar pengguna.
 ## Data Preparation
+Dalam menyiapkan data agar dapat digunakan oleh model terdapat beberapa tahapan, yaitu :
+
+- **Sorting Data**
+
+  Melakukan pengurutan data berdasarkan blog_id agar mudah dalam melakukan penghapusan duplikat data.
+
+- **Remove Duplicate Data**
+
+  Melakukan penghapusan data duplikat agar tidak terjadi bias pada data.
+
+- **Selection Feature & Convert Data to List**
+
+  Memilih fitur yang akan digunakan pada model dan mengubah bentuk datanya menjadi list, hal ini dilakukan agar pemrosesan pada model lebih efisien.
 
 ## Modelling
+Pada proyek ini proses modeling menggunakan algoritma Neural Network dan Cosine Similarity. Neural Network akan digunakan pada sistem rekomendasi dengan model Collaborative Filtering, sedangkan Cosine Similarity akan digunakan pada model Content Based Filtering.
+### Content Based Filtering
+Pada pembuatan model ini langkah pertama yang dilakukan adalah mengubah data pada fitur topic menjadi representasi vektor berdasarkan frekuensi kata dan bobotnya menggunakan [TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html), kemudian melakukan fit dan transformasi ke dalam bentuk matriks. Langkah yang kedua adalah menghitung kesamaan antara dua vektor dengan menggunakan [Cosine Similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html) pada matriks TF-IDF, berikut rumus untuk menghitung kesamaan vektor :
+
+![rumus](https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:784efd3d2ba47d47153b050526150ba920210910171725.jpeg)
+
+Gambar 10. Rumus Cosine Similarity
+
+|Title||||||
+|-|-|-|-|-|-|
+|||||||
+|||||||
+|||||||
+|||||||
+
+Table 7. Hasil Cosine Similarity
+
+### Collaborative Filtering
+
 
 ## Evaluation
