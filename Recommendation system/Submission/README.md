@@ -19,7 +19,7 @@ Dengan dibuatnya proyek *machine learning* ini, diharapkan dapat mempermudah pen
   
 ### Goals
 - Melakukan pengolahan data agar dapat digunakan pada model sistem rekomendasi.
-- Membuat model machine learning untuk sistem rekomendasi yang dapat memberikan rekomendasi artikel blog pada pengguna.
+- Membuat model *machine learning* untuk sistem rekomendasi yang dapat memberikan rekomendasi artikel blog pada pengguna.
   
 ### Solution Statements
 Untuk menyelesaikan masalah ini terdapat beberapa cara yang digunakan antara lain :
@@ -43,7 +43,7 @@ Table 1. Informasi Dataset
   
 - Dataset Blog_Rating.csv
 
-  Terdapat 200140 data dengan 2 fitur tipe ineteger dan 1 fitur tipe float :
+  Terdapat 200140 data dengan 2 fitur tipe integer dan 1 fitur tipe float :
   - `blog_id` : Id dari blog
   - `userId` : Id pengguna 
   - `ratings` : Rating yang diberikan oleh pengguna 
@@ -111,7 +111,7 @@ Pada dataset Medium_Blog_Data.csv fitur yang dibutuhkan hanya blog_id, author_id
 
 Table 3. Tampilan 5 data teratas pada blog
 
-Terlihat pada table 3 ternyata author dengan author_id 4 memiliki 2 artikel blog dengan judul yang sama namun berbeda blog_id.
+Terlihat pada table 3 ternyata author dengan author_id 4 memiliki 2 artikel blog dengan title yang sama namun berbeda blog_id.
 
 ![uniq_blog](https://github.com/bimapras/Dicoding_Submission/assets/91962289/58da5cc4-75ef-4a9d-ba75-f3819c9d8453)
 
@@ -135,7 +135,7 @@ Pada gambar 6 terlihat jumlah author_id tidak seimbang dengan jumlah author_name
 
 Gambar 7. Double blog_id
 
-Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, maka dari itu perlu dilihat author tersebut memiliki author_id apa saja. Author_id Kompetify.ai dapat dlihat pada tabel 4.
+Dari gambar 7 dapat dilihat bahwa author dengan nama Kompetify.ai memili 2 id, maka dari itu perlu dilihat author tersebut memiliki author_id apa saja, author_id *Kompetify.ai* dapat dlihat pada tabel 4.
 
 |author_id|author_name|
 |-|-|
@@ -161,7 +161,7 @@ Pada proyek ini terdapat beberapa teknik yang digunakan pada preprocessing, anta
   
 - **Merge author and blog**
 
-  Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari missing value pada fitur tertentu dan melihat jumlah data.
+  Melakukan penggabungan data author dan blog untuk dianalisis, seperti mencari *missing value* pada fitur tertentu dan melihat jumlah data.
 
   |Shape|
   |-|
@@ -175,10 +175,10 @@ Pada proyek ini terdapat beberapa teknik yang digunakan pada preprocessing, anta
 
   Gambar 8. Missing value
   
-  Dapat dilihat pada gambar 8 terdapat 44 missing value pada fitur blog_id, blog_title, topic setelah digabungkan. Sehingga dapat dilakukan penghapusan pada data yang memiliki missing value.
+  Dapat dilihat pada gambar 8 terdapat 44 *missing value* pada fitur blog_id, blog_title, topic setelah digabungkan. Sehingga dapat dilakukan penghapusan pada data yang memiliki *missing value*.
 - **Remove Missing Value**
 
-  Menghapus data yang memiliki missing value menggunakan *dropna()*, proses ini dilakukan agar tidak terjadi bias pada data nantinya. Kemudian setelah missing value dihapus jumlah datanya dapat dilihat pada table 6.
+  Menghapus data yang memiliki *missing value* menggunakan *dropna()*, proses ini dilakukan agar tidak terjadi bias pada data nantinya. Kemudian setelah *missing value* dihapus jumlah datanya dapat dilihat pada table 6.
 
   |Shape|
   |-|
@@ -187,7 +187,7 @@ Pada proyek ini terdapat beberapa teknik yang digunakan pada preprocessing, anta
   Table 6. Dimensi data bersih
 - **Create Dataframe blog_rate**
 
-  Membuat Dataframe baru dengan menggabungkan data bersih dan rating. Penggabungan ini dilakukan untuk mendapatkan informasi tentang preferensi pengguna, dengan mendapatkan informasi ini model machine learning akan jauh lebih mudah merekomendasikan artikel blog yang relevan dengan minat pengguna.
+  Membuat Dataframe baru dengan menggabungkan data bersih dan rating. Penggabungan ini dilakukan untuk mendapatkan informasi tentang preferensi pengguna, dengan mendapatkan informasi ini model *machine learning* akan jauh lebih mudah merekomendasikan artikel blog yang relevan dengan minat pengguna.
   
 ![like_topic](https://github.com/bimapras/Dicoding_Submission/assets/91962289/f1be7415-8585-4774-a035-e2f4dada0559)
   Gambar 9. Distribusi Top Topic
@@ -209,7 +209,7 @@ Dalam menyiapkan data agar dapat digunakan oleh model terdapat beberapa tahapan,
   Memilih fitur yang akan digunakan pada model dan mengubah bentuk datanya menjadi list, hal ini dilakukan agar pemrosesan pada model lebih efisien.
 
 ## Modelling
-Pada proyek ini proses modeling menggunakan algoritma Neural Network dan Cosine Similarity. Neural Network akan digunakan pada sistem rekomendasi dengan model Collaborative Filtering, sedangkan Cosine Similarity akan digunakan pada model Content Based Filtering.
+Pada proyek ini proses modeling menggunakan algoritma *Neural Network* dan *Cosine Similarity*. *Neural Network* akan digunakan pada sistem rekomendasi dengan model *Collaborative Filtering*, sedangkan *Cosine Similarity* akan digunakan pada model *Content Based Filtering*.
 ### Content Based Filtering
 Pada pembuatan model ini langkah pertama yang dilakukan adalah mengubah data pada fitur topic menjadi representasi vektor berdasarkan frekuensi kata dan bobotnya menggunakan [TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html), kemudian melakukan fit dan transformasi ke dalam bentuk matriks. Langkah yang kedua adalah menghitung kesamaan antara dua vektor dengan menggunakan [Cosine Similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html) pada matriks TF-IDF, berikut rumus untuk menghitung kesamaan vektor :
 
@@ -227,15 +227,15 @@ Gambar 10. Rumus Cosine Similarity
 
 Table 7. Hasil Cosine Similarity
 
-Cosine Similarity menghitung kesamaan antar item dalam rentang 0 dan 1, dimana item yang memiliki nilai mendekati 1 memiliki kesamaan yang tinggi. Dari table 7 menunjukkan artikel blog dengan title *Mobile Movement Dialect Rugged By Apple Solana Mobile Creates History Again METAVERTU Builds Luxury Web3 Phone* memiliki kesamaan jenis konten dengan artikel blog dengan title *Why Web3 is the Next Big Thing*.
+*Cosine Similarity* menghitung kesamaan antar item dalam rentang 0 dan 1, dimana item yang memiliki nilai mendekati 1 memiliki kesamaan yang tinggi. Dari table 7 menunjukkan artikel blog dengan title *Mobile Movement Dialect Rugged By Apple Solana Mobile Creates History Again METAVERTU Builds Luxury Web3 Phone* memiliki kesamaan jenis konten dengan artikel blog dengan title *Why Web3 is the Next Big Thing*.
 
-Berikut kelebihan dan kekurangan dari Content Based Filtering :
+Berikut kelebihan dan kekurangan dari *Content Based Filtering* :
 
 - Kelebihan
-  - Tidak memerlukan data pengguna
+  - Tidak memerlukan data pengguna.
 
 - Kekurangan
-  - Memerlukan banyak data item
+  - Memerlukan banyak data item.
   - Tidak mampu menentukan profil dari pengguna baru.
  
 Hasil 10 rekomendasi artikel blog menggunakan *Content Based Filtering* dapat dilihat pada table 9, artikel blog yang digunakan untuk memberikan rekomendasi terdapat pada table 8.
@@ -261,13 +261,22 @@ Tabel 8. Data uji coba
 
 Tabel 9. Hasil rekomendasi content based filtering
 ### Collaborative Filtering
-Pada model *Collaborative Filtering* informasi dari user sangat dibutuhkan agar model dapat bekerja dengan baik, sehingga langkah pertama dalam pembuatan model ini adalah membuat dataframe profile yang berisikan informasi dari pengguna seperti userId, blog_id, dan ratings. Kemudian mengubah blog_id dan blog_id menjadi list, setelah bentuk datanya menjadi list lakukan mapping ke dataframe profile. Langkah kedua yaitu melakukan pembagian data menjadi train 80% dan validasi 20% menggunakan [train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
+Pada model *Collaborative Filtering* informasi milik pengguna sangat dibutuhkan agar model dapat bekerja dengan baik, sehingga langkah pertama dalam pembuatan model ini adalah membuat dataframe profile yang berisikan informasi dari pengguna seperti userId, blog_id, dan ratings. Kemudian mengubah blog_id dan blog_id menjadi list, setelah bentuk datanya menjadi list lakukan mapping ke dataframe profile. Langkah kedua yaitu melakukan pembagian data menjadi train 80% dan validasi 20% menggunakan [train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
 
-Langkah yang terakhir adalah membuat model menggunakan Neural Network, dimana model ini menggunakan layer embedding dan layer embedding bias pada data userId dan blog_id. Hasil dari model ini merupakan perkalian dot product antara embedding userId dengan blog_id.
+Langkah yang terakhir adalah membuat model menggunakan *Neural Network*, dimana model ini menggunakan *layer embedding* dan *layer embedding* bias pada data userId dan blog_id. Hasil dari model ini merupakan perkalian *dot product* antara *embedding* userId dengan blog_id.
 
+Berikut kelebihan dan kekurangan dari model *Collaborative Filtering* :
+
+- Kelebihan
+  - Dapat membuat rekomendasi tanpa harus selalu menggunakan data yang lengkap.
+  - Unggul dari segi kecepatan dan *skalabilitas*.
+    
+- Kekurangan
+  - Memerlukan data informasi pengguna.
+    
 Berikut hasil rekomendasi untuk user 3036, dapat dilihat pada gambar 11.
 
+![result collaborative](https://github.com/bimapras/Dicoding_Submission/assets/91962289/7be69af4-e83f-4d71-9761-c33ea13d428a)
 
-
-Gambar 11. Hasil rekomendasi collaborative filtering
+Gambar 11. Hasil rekomendasi *collaborative filtering*
 ## Evaluation
