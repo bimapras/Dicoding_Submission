@@ -232,11 +232,12 @@ Table 7. Hasil Cosine Similarity
 Berikut kelebihan dan kekurangan dari *Content Based Filtering* :
 
 - Kelebihan
-  - Tidak memerlukan data pengguna.
+  - Tidak memerlukan data informasi pengguna.
+  - Dapat memberikan item yang sesuai dengan preferensi pengguna
 
 - Kekurangan
   - Memerlukan banyak data item.
-  - Tidak mampu menentukan profil dari pengguna baru.
+  - Tidak dapat menentukan profil dari pengguna baru.
  
 Hasil 10 rekomendasi artikel blog menggunakan *Content Based Filtering* dapat dilihat pada table 9, artikel blog yang digunakan untuk memberikan rekomendasi terdapat pada table 8.
 
@@ -272,7 +273,8 @@ Berikut kelebihan dan kekurangan dari model *Collaborative Filtering* :
   - Unggul dari segi kecepatan dan *skalabilitas*.
     
 - Kekurangan
-  - Memerlukan data informasi pengguna.
+  - Memerlukan data informasi pengguna
+  - Memungkinkan hasil rekomendasi tidak sesuai dengan minat pengguna.
     
 Berikut hasil rekomendasi untuk user 3036, dapat dilihat pada gambar 11.
 
@@ -280,3 +282,43 @@ Berikut hasil rekomendasi untuk user 3036, dapat dilihat pada gambar 11.
 
 Gambar 11. Hasil rekomendasi *collaborative filtering*
 ## Evaluation
+Pada proyek ini menerapkan 2 metric evaluasi yaitu [RootMeanSquaredError](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) (RMSE) dan *Precision*
+
+### Evaluasi Content Based Filtering
+Pada evaluasi content based filtering menggunakan metrik precision content based filtering untuk menghitung precision model sistem yang telah dibuat sebelumnya. Rumus perhitungan precision dapat dilihat pada gambar 12.
+
+![precision](https://miro.medium.com/v2/resize:fit:640/format:webp/1*MjZVU83RyTYp6gR8u4UZAQ.png)
+
+Gambar 12. Rumus precision
+
+Berikut analisis untuk menghitung precision hasil rekomendasi *Content Based Filtering* :
+||title|topic|
+|-|-|-|
+|sample|sqlite from a web page|webdevelopment|
+|Top-K|The Pros and Cons of Using OpenSource Software in Your Business|webdevelopment|
+|Top-K|Solution 5 Agnostics From hodling to thriving Web3 communities unlock the power of their tokens|webdevelopment|
+|Top-K|Mastering Reducers A Comprehensive Guide for Everyone|webdevelopment|
+|Top-K|Why I Wouldnt Hire Cool Programmers if I Launched a Startup|webdevelopment|
+|Top-K|React Application Gets Depressed and Finds Therapy in Nextjs and Jest|webdevelopment|
+|Top-K|10 RxJS operators which I use daily as an Angular developer|webdevelopment|
+|Top-K|Stop Using Docker|webdevelopment|
+|Top-K|Basics of Working with APIs|webdevelopment|
+|Top-K|Redux Simplified A Beginners Guide to the Core Concepts of Redux|webdevelopment|
+|Top-K|How im going to build OXINION Finance with ChatGPT|webdevelopment|
+
+Tabel 10. Analisis precision
+
+Dari tabel 10 dapat dilihat bahwa sample artikel blog memiliki topic atau jenis konten yaitu web-development, dan hasil rekomendasi merupakan Top-K memiliki topic yang sama semua yaitu web-development. Artinya nilai precisionnya sebesar 100% (10/10).
+
+### Evaluasi Collaborative Filtering
+Pada *Collaborative Filtering* metric yang digunakan adalah *RMSE*, dimana semakin rendah nilai root mean square error yang dihasilkan semakin baik model tersebut. Berikut rumus perhitungan *RMSE* pada gambar 13.
+
+![RMSE](https://community.qlik.com/legacyfs/online/128958_2016-06-23%2013_45_36-Root%20Mean%20Squared%20Error%20_%20Kaggle.png)
+
+Gambar 13. Rumus RMSE
+
+
+
+Gambar 14. Visualiasasi epoch rmse
+
+
