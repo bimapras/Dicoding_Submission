@@ -233,6 +233,7 @@ Berikut kelebihan dan kekurangan dari Content Based Filtering :
 
 - Kelebihan
   - Tidak memerlukan data pengguna
+
 - Kekurangan
   - Memerlukan banyak data item
   - Tidak mampu menentukan profil dari pengguna baru.
@@ -247,20 +248,26 @@ Tabel 8. Data uji coba
 
 |title|topic|
 |-|-|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
-||webdevelopment|
+|The Pros and Cons of Using OpenSource Software in Your Business|webdevelopment|
+|Solution 5 Agnostics From hodling to thriving Web3 communities unlock the power of their tokens|webdevelopment|
+|Mastering Reducers A Comprehensive Guide for Everyone|webdevelopment|
+|Why I Wouldnt Hire Cool Programmers if I Launched a Startup|webdevelopment|
+|React Application Gets Depressed and Finds Therapy in Nextjs and Jest|webdevelopment|
+|10 RxJS operators which I use daily as an Angular developer|webdevelopment|
+|Stop Using Docker|webdevelopment|
+|Basics of Working with APIs|webdevelopment|
+|Redux Simplified A Beginners Guide to the Core Concepts of Redux|webdevelopment|
+|How im going to build OXINION Finance with ChatGPT|webdevelopment|
 
-Tabel 9. Hasil 10 rekomendasi
+Tabel 9. Hasil rekomendasi content based filtering
 ### Collaborative Filtering
+Pada model *Collaborative Filtering* informasi dari user sangat dibutuhkan agar model dapat bekerja dengan baik, sehingga langkah pertama dalam pembuatan model ini adalah membuat dataframe profile yang berisikan informasi dari pengguna seperti userId, blog_id, dan ratings. Kemudian mengubah blog_id dan blog_id menjadi list, setelah bentuk datanya menjadi list lakukan mapping ke dataframe profile. Langkah kedua yaitu melakukan pembagian data menjadi train 80% dan validasi 20% menggunakan [train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html).
+
+Langkah yang terakhir adalah membuat model menggunakan Neural Network, dimana model ini menggunakan layer embedding dan layer embedding bias pada data userId dan blog_id. Hasil dari model ini merupakan perkalian dot product antara embedding userId dengan blog_id.
+
+Berikut hasil rekomendasi untuk user 3036, dapat dilihat pada gambar 11.
 
 
+
+Gambar 11. Hasil rekomendasi collaborative filtering
 ## Evaluation
