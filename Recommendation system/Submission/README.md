@@ -237,7 +237,7 @@ Berikut kelebihan dan kekurangan dari Content Based Filtering :
   - Memerlukan banyak data item
   - Tidak mampu menentukan profil dari pengguna baru.
  
-Berikut 10 rekomendasi artikel blog menggunakan *Content Based Filtering*
+Hasil 10 rekomendasi artikel blog menggunakan *Content Based Filtering* dapat dilihat pada table 9, artikel blog yang digunakan untuk memberikan rekomendasi terdapat pada table 8.
 
 |blog_id|title|topic|
 |-|-|-|
