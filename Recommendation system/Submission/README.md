@@ -217,15 +217,49 @@ Pada pembuatan model ini langkah pertama yang dilakukan adalah mengubah data pad
 
 Gambar 10. Rumus Cosine Similarity
 
-|Title||||||
+|Title|Building Your Developer Portal with Backstage a Comprehensive Tutorial|Is Offline reinforcement learning the future part2Machine Learning|CUDOS POWERING THE METAVERSE|Mobile Movement Dialect Rugged By Apple Solana Mobile Creates History Again METAVERTU Builds Luxury Web3 Phone|Socket Programming in Go Write a simple TCP clientserver|
 |-|-|-|-|-|-|
-|||||||
-|||||||
-|||||||
-|||||||
+|Building Your Developer Portal with Backstage a Comprehensive Tutorial|0.0|0.0|0.0|1.0|0.0|
+|Is Offline reinforcement learning the future part2Machine Learning|0.0|0.0|0.0|0.0|0.0|
+|CUDOS POWERING THE METAVERSE|0.0|0.0|0.0|0.0|0.0|
+|Mobile Movement Dialect Rugged By Apple Solana Mobile Creates History Again METAVERTU Builds Luxury Web3 Phone|0.0|0.0|0.0|0.0|0.0|
+|Socket Programming in Go Write a simple TCP clientserver|0.0|0.0|0.0|0.0|0.0|
 
 Table 7. Hasil Cosine Similarity
 
+Cosine Similarity menghitung kesamaan antar item dalam rentang 0 dan 1, dimana item yang memiliki nilai mendekati 1 memiliki kesamaan yang tinggi. Dari table 7 menunjukkan artikel blog dengan title *Mobile Movement Dialect Rugged By Apple Solana Mobile Creates History Again METAVERTU Builds Luxury Web3 Phone* memiliki kesamaan jenis konten dengan artikel blog dengan title *Why Web3 is the Next Big Thing*.
+
+Berikut kelebihan dan kekurangan dari Content Based Filtering :
+
+- Kelebihan
+  - Tidak memerlukan data pengguna
+- Kekurangan
+  - Memerlukan banyak data item
+  - Tidak mampu menentukan profil dari pengguna baru.
+ 
+Berikut 10 rekomendasi artikel blog menggunakan *Content Based Filtering*
+
+|blog_id|title|topic|
+|-|-|-|
+|9145|sqlite from a web page|webdevelopment|
+
+Tabel 8. Data uji coba
+
+|title|topic|
+|-|-|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+||webdevelopment|
+
+Tabel 9. Hasil 10 rekomendasi
 ### Collaborative Filtering
 
 
