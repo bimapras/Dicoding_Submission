@@ -311,14 +311,15 @@ Tabel 10. Analisis precision
 Dari tabel 10 dapat dilihat bahwa sample artikel blog memiliki topic atau jenis konten yaitu web-development, dan hasil rekomendasi merupakan Top-K memiliki topic yang sama semua yaitu web-development. Artinya nilai precisionnya sebesar 100% (10/10).
 
 ### Evaluasi Collaborative Filtering
-Pada *Collaborative Filtering* metric yang digunakan adalah *RMSE*, dimana semakin rendah nilai root mean square error yang dihasilkan semakin baik model tersebut. Berikut rumus perhitungan *RMSE* pada gambar 13.
+Pada *Collaborative Filtering* metric yang digunakan adalah *RMSE*, dimana semakin rendah nilai *root mean square error* yang dihasilkan semakin baik model tersebut. Berikut rumus perhitungan *RMSE* pada gambar 13.
 
 ![RMSE](https://community.qlik.com/legacyfs/online/128958_2016-06-23%2013_45_36-Root%20Mean%20Squared%20Error%20_%20Kaggle.png)
 
 Gambar 13. Rumus RMSE
 
-
+![rmse](https://github.com/bimapras/Dicoding_Submission/assets/91962289/deb8c4aa-ec00-4b19-8623-d838a74284be)
 
 Gambar 14. Visualiasasi epoch rmse
 
+Dapat dilihat pada gambar 14, data train mendapatkan nilai error sebesar 0.375 dan data validasi mendapatkan nilai error 0.399, nilai tersebut dihasilkan dengan melakukan training sebnayak 13 kali untuk menghindari overfitting. Walaupun nilai error yang didapat cukup besar, namun nilai tersebut sudah cukup bagus untuk sistem rekomendasi.
 
