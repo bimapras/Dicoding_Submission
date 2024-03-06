@@ -323,3 +323,9 @@ Gambar 14. Visualiasasi epoch rmse
 
 Dapat dilihat pada gambar 14, data train mendapatkan nilai error sebesar 0.375 dan data validasi mendapatkan nilai error 0.399, nilai tersebut dihasilkan dengan melakukan training sebnayak 13 kali untuk menghindari overfitting. Walaupun nilai error yang didapat cukup besar, namun nilai tersebut sudah cukup bagus untuk sistem rekomendasi.
 
+# Referensi
+
+[1] Samir Brahim B. (2023). A Collaborative Filtering Recommendation Framework Utilizing Social Networks. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S2666827023000488)
+
+[2] Rianti, A., Majid, N. W. A., & Fauzi, A. (2022). Machine Learning Journal Article Recommendation System using Content Based Filtering. [*Jurnal Teknologi Informasi dan Ilmu Komputer, Volume 22, Number 1, January 2024: 1 – 10*](https://www.researchgate.net/publication/378695877_Machine_Learning_Journal_Article_Recommendation_System_using_Content_based_Filtering)
+
